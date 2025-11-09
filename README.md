@@ -1,77 +1,96 @@
-Claro\! Com base nas informações fornecidas sobre o projeto **Ágata — Gerenciador de Teleconsultas**, organizei um `README.md` completo, claro e otimizado para que você possa copiar e colar.
+# ⚕️ Ágata — Gerenciador de Teleconsultas
 
-Este formato utiliza Markdown para melhor leitura e inclui todas as seções necessárias:
+[![Status do Projeto](https://img.shields.io/badge/Status-Concluído-brightgreen.svg)](https://github.com/seu-repositorio)
+[![Licença](https://img.shields.io/badge/Licença-Proprietária-blue.svg)](https://github.com/seu-repositorio)
+[![Plataforma Principal](https://img.shields.io/badge/Plataforma-Java%2022%20%7C%20Quarkus-red.svg)]()
 
-````markdown
-# 🏥 Ágata — Gerenciador de Teleconsultas (NEXUMTECH)
+> Uma solução **NEXUMTECH** focada em simplificar a telemedicina para pacientes com dificuldades motoras, cognitivas ou tecnológicas — garantindo acesso rápido, acessível e intuitivo às consultas.
 
-O **Ágata** é uma solução que visa simplificar o acesso à telemedicina para pacientes com limitações (motoras, cognitivas ou dificuldades tecnológicas). Em vez de depender de sistemas complexos, o Ágata oferece interações intuitivas (como o botão **ENTRAR**), notificações direcionadas e um fluxo seguro e robusto para gerenciar agendamentos e iniciar teleconsultas.
+---
 
-| Informação | Detalhe |
+## 👨‍💻 Informações do Projeto & Equipe
+
+| Categoria | Detalhe |
 | :--- | :--- |
 | **Instituição / Marca** | NEXUMTECH |
-| **Local e Ano** | São Paulo, 2025 |
 | **Turmas** | 1TDSPY |
-| **Equipe** | Felipe Ribeiro Salles de Camargo (565224), Pamella Christiny Chaves Brito (565206) |
+| **Local e Ano** | São Paulo, 2025 |
+
+### 👥 Equipe de Desenvolvimento
+| Nome | Matrícula |
+| :--- | :--- |
+| Felipe Ribeiro Salles de Camargo | 565224 |
+| Pamella Christiny Chaves Brito | 565206 |
 
 ---
 
 ## 🎯 Objetivo e Escopo
 
-### Objetivo
-Reduzir barreiras, orientar o paciente com interações intuitivas (botões **ENTRAR**) e garantir que o fluxo de agendamento/entrada na teleconsulta seja simples, seguro e robusto.
+### 🎯 Objetivo Principal
+Reduzir as **barreiras tecnológicas no acesso à saúde**, oferecendo uma plataforma robusta e simplificada que utiliza notificações direcionadas e interações diretas (botão **ENTRAR**) para garantir que o paciente acesse a teleconsulta com segurança, rapidez e sem frustração.
 
-### Escopo
-* Gestão de pacientes, médicos e consultas.
-* Agendamento de consultas com verificação de conflitos de horário.
-* **Notificações** para três tipos de interação: fixa/pontual, pré-consulta (sala de espera) e consulta atrasada.
-* Interface CLI (Linha de Comando) para administração.
-* Componente de simulação de teleconsulta via **Java Swing**.
+### 📋 Escopo Funcional
+O sistema abrange a **gestão completa de agendamentos** e o **controle de interações** com o paciente:
 
----
-
-## 💻 Tecnologias e Dependências
-
-| Categoria | Detalhes |
-| :--- | :--- |
-| **Linguagem Principal** | Java (JDK 22) |
-| **Banco de Dados** | Oracle |
-| **APIs / Frameworks** | JDBC (com Oracle), Java Swing, `java.time` |
-| **IDE** | IntelliJ IDEA (Recomendado) |
+- ✅ **Gestão CRUD** (Create, Read, Update, Delete) de pacientes, médicos e consultas.  
+- ⚙️ **Regra de Conflito:** validação de horário para agendamento de consultas.  
+- 🔔 **Três Modos de Notificação/Interação:**
+  1. **Fixa/Pontual:** acesso direto à sala virtual.  
+  2. **Pré-consulta:** direcionamento para sala de espera virtual.  
+  3. **Consulta Atrasada:** acesso imediato à sala virtual.
 
 ---
 
-## 🌐 Endpoints da API REST (Quarkus)
+## 🛠️ Pilha Tecnológica (Tech Stack)
 
-A API está servida em: `https://teleconsultajava.onrender.com`
+O projeto foi desenvolvido com **arquitetura em camadas**, utilizando tecnologias modernas e de alto desempenho.
 
-| Recurso | Método | URI | Descrição | Sucesso | Erro / Regra |
+| Categoria | Tecnologia | Versão / Detalhe |
+| :--- | :--- | :--- |
+| **Linguagem** | Java | JDK 22 |
+| **Framework** | Quarkus | 3.x |
+| **Banco de Dados** | Oracle | Base Relacional |
+| **Conexão** | JDBC | `ojdbc` |
+| **Interface (Simulação)** | Java Swing | Teleconsulta Interativa |
+| **Datas e Horários** | `java.time` | API nativa Java |
+
+---
+
+## 🌐 Endpoints RESTful (API)
+
+A API está hospedada em:  
+`https://teleconsultajava.onrender.com`
+
+### 📡 Recursos e Operações
+
+| Recurso | Método | URI | Descrição | Resposta (Sucesso) | Resposta (Erro / Regra) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Consulta** | `POST` | `/consultas` | Agenda nova consulta (verifica conflito) | `201 Created` | `409 Conflict`, `500` |
-| **Consulta** | `GET` | `/consultas` | Lista de todas as consultas agendadas | `200 OK` | `404 Not Found` |
-| **Consulta** | `DELETE` | `/consultas/{id}` | Cancelar/excluir consulta por ID | `204 No Content` | `404 Not Found` |
-| **Paciente** | `POST` | `/pacientes` | Adicionado novo paciente (CPF único) | `201 Created` | `409 Conflict` |
+| **Consulta** | `POST` | `/consultas` | Agenda nova consulta | `201 Created` | `409 Conflict`, `500` |
+| **Consulta** | `GET` | `/consultas` | Lista todas as consultas | `200 OK` | `404 Not Found` |
+| **Consulta** | `DELETE` | `/consultas/{id}` | Exclui consulta por ID | `204 No Content` | `404 Not Found` |
+| **Paciente** | `POST` | `/pacientes` | Cadastra novo paciente (CPF único) | `201 Created` | `409 Conflict` |
 | **Paciente** | `GET` | `/pacientes/{id}` | Busca paciente por ID | `200 OK` | `404 Not Found` |
-| **Paciente** | `PUT` | `/pacientes/{id}` | Atualizar todos os dados do paciente | `200 OK` | `404 Not Found` |
-| **Paciente** | `DELETE` | `/pacientes/{id}` | Remover paciente pelo ID | `204 No Content` | `404 Not Found` |
-| **Médico** | `POST` | `/medicos` | Adicionado novo médico (CRM único) | `201 Created` | `409 Conflict` |
-| **Médico** | `GET` | `/medicos` | Lista todos os médicos | `200 OK` | `404 Not Found` |
-| **Médico** | `GET` | `/medicos/{crm}` | Busca médico pelo CRM | `200 OK` | `404 Not Found` |
-| **Médico** | `PUT` | `/medicos/{crm}` | Atualizar dados do médico pelo CRM | `200 OK` | `404 Not Found` |
-| **Médico** | `DELETE` | `/medicos/{crm}` | Remover médico pelo CRM | `204 No Content` | `404 Not Found` |
+| **Paciente** | `PUT` | `/pacientes/{id}` | Atualiza dados do paciente | `200 OK` | `404 Not Found` |
+| **Médico** | `POST` | `/medicos` | Adiciona novo médico (CRM único) | `201 Created` | `409 Conflict` |
+| **Médico** | `GET` | `/medicos/{crm}` | Busca médico por CRM | `200 OK` | `404 Not Found` |
+| **Médico** | `PUT` | `/medicos/{crm}` | Atualiza dados do médico | `200 OK` | `404 Not Found` |
 
 ---
 
-## ⚙️ Guia de Execução (Passo a Passo)
+## 🚀 Guia de Inicialização
 
-### 1) Pré-requisitos
-1.  **JDK 22** instalado e variáveis de ambiente (`JAVA_HOME`/`PATH`) configuradas.
-2.  Banco de dados **Oracle** acessível.
-3.  **Driver JDBC** (`ojdbc*.jar`) obtido e adicionado ao *classpath* do projeto na IDE.
-4.  Execute os scripts SQL para criar o esquema (vide seção abaixo).
+### 🧩 Pré-requisitos
 
-### 2) Configuração do Banco de Dados (Oracle JDBC)
-No arquivo `banco/ConnectionFactory.java`, configure os detalhes da sua conexão:
+1. **JDK 22** instalado e configurado (`JAVA_HOME` e `PATH`);  
+2. Ambiente **Oracle Database** funcional;  
+3. **Driver JDBC** (`ojdbc*.jar`) adicionado às dependências;  
+4. Schema e scripts SQL executados.
+
+---
+
+### ⚙️ 1. Configuração do Banco de Dados
+
+Edite o arquivo `banco/ConnectionFactory.java` com suas credenciais:
 
 ```java
 String urlDeConexao = "jdbc:oracle:thin:@<host>:<porta>:<SID>";
@@ -79,24 +98,24 @@ String login = "<seu_usuario>";
 String senha = "<sua_senha>";
 ````
 
-### 3\) Importação na IDE
+---
 
-1.  Abra a sua IDE (IntelliJ recomendado).
-2.  **Arquivo \> Abrir** e selecione a pasta raiz do projeto (`Ágata`).
-3.  Verifique se a pasta `src` está marcada como **Source Root**.
-4.  Adicione o JAR do driver JDBC às bibliotecas do projeto (Módulo Libraries).
+### ▶️ 2. Importação e Execução
 
-### 4\) Rodar a Aplicação
+1. Abra o projeto na sua IDE (IntelliJ, Eclipse, VS Code, etc.);
+2. Confirme a adição do driver JDBC nas bibliotecas;
+3. Execute a classe principal:
 
-1.  Abra a classe principal: `app.Main.java`.
-2.  Execute a classe (`Run`).
-3.  A interação principal do sistema administrativo é feita via **console (menu)**.
+   ```bash
+   app.Main.java
+   ```
+4. A interação inicial ocorre via **console (CLI)**, com opções de menu para CRUD.
 
------
+---
 
-## 🐘 Scripts SQL (Criação do Esquema)
+## 🐘 Scripts SQL — Criação do Schema
 
-Copie e execute estes scripts SQL no seu esquema Oracle:
+Execute os comandos abaixo no seu schema Oracle:
 
 ```sql
 -- SEQUÊNCIAS
@@ -128,4 +147,15 @@ CREATE TABLE CONSULTA (
     CONSTRAINT FK_CONSULTA_PACIENTE FOREIGN KEY (ID_PACIENTE) REFERENCES PACIENTE(ID),
     CONSTRAINT FK_CONSULTA_MEDICO FOREIGN KEY (CRM_MEDICO) REFERENCES MEDICO(CRM)
 );
+```
+
+---
+
+## 🧠 Considerações Finais
+
+O **Ágata – Gerenciador de Teleconsultas** é uma solução desenvolvida para aprimorar a experiência de pacientes e profissionais da saúde em ambientes digitais, reduzindo a complexidade técnica e aumentando a acessibilidade.
+
+> Projeto desenvolvido com 💙 por **NEXUMTECH** — Turma 1TDSPY, FIAP (2025).
+
+``
 ```
