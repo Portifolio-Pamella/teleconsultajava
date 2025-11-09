@@ -22,6 +22,10 @@
 | Felipe Ribeiro Salles de Camargo | 565224 |
 | Pamella Christiny Chaves Brito | 565206 |
 
+
+repositorio gitHub https://github.com/Portifolio-Pamella/teleconsultajava.git
+link rodando no Render 
+
 ---
 
 ## 🎯 Objetivo e Escopo
